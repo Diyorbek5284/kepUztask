@@ -1,0 +1,41 @@
+<div class="input_contain">
+  <input
+    class="input"
+    type="text"
+    placeholder="Search..."
+    id="filter-text-box"
+    [(ngModel)]="searchbox"
+    (ngModelChange)="filterChange()"
+  />
+</div>
+
+<div class="row mt-10">
+  <div class="col-12">
+    <ag-grid-angular
+      style="height: 500px"
+      class="ag-theme-quartz"
+      [rowData]="userList"
+      [columnDefs]="colDefs"
+      [rowSelection]="rowSelection"
+      [defaultColDef]="defaultColDef"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+  </div>
+</div>
+<div class="pagination">
+  <button (click)="minDecrement()"><<</button>
+  <button (click)="decrement()"><</button>
+  <span>1 of {{ counts }}</span>
+  <button (click)="increment()">></button>
+  <button (click)="maxIncrement()">>></button>
+</div>
+
+
+
+<!-- =====O'rnatiladigan kutubxonalar=============== -->
+
+<!-- ============================================== -->
+<!-- npm install ag-grid-angular -kutubxonasi o'rbatiladi
+npm i bootstrap@5.3.2 bootstrap- o'rnatiladi -->
+<!-- ============================================= -->
